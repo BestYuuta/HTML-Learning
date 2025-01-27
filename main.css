@@ -1,0 +1,34 @@
+h1 {
+    text-align: center;
+    color: #ff0000;
+}
+
+.giaodien {
+    background-color: aqua;
+    text-align: center;
+    color: #ff0000;
+    padding: 15px;
+    border-radius: 30px;
+    border: 3px solid #c4ffa5;
+}
+
+.loginform {
+    text-align: center;
+    color: #004421;
+    padding: 10px;
+}
+
+button {
+    text-align: center;
+    padding: 5px;
+    color: #00b7ff;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
