@@ -1,24 +1,94 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Trang đăng nhập </title>
+        <title> Chúc mừng sinh nhật </title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="main.css">
     </head>
 
-<body>
-    <div class = "giaodien">
-        <h1> Đăng nhập </h1>
-        <div class="loginform">
-            <label> Tài khoản: </label>
-            <input type="text" placeholder="username">
+    <body>
+        <img src="https://cdn-icons-png.flaticon.com/512/2480/2480469.png" class="balloons">
+        <div class="container">
+            <h1>Chúc Mừng Sinh Nhật!</h1>
+            <p>Chúc bé iu sinh nhật vui vẻ tràn đầy hạnh phúc :3</p>
+            <button class="btn" onclick="openPopup()">Nhấn để nhận lời chúc</button>
         </div>
-        <div class="loginform">
-            <label> Mật khẩu: </label>
-            <input type="password" placeholder="password">
+        <div id="balloon-container"></div>
+ 
+   <!-- Cửa sổ popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p>Anh yêu em lắm, tuổi 18 nì của em cùng với anh hạnh phúc nhé :3</p>
+            <div class="button-container">
+                <button class="btn" onclick="showHeart()">Đồng ý</button>
+                <button class="btn no-btn" id="noBtn" onmouseover="moveButton()" onclick="showNoPopup()">Không đồng ý</button>
+            </div>
         </div>
-        <button type="submit"> Đăng nhập </button>
-        <button type="submit"> Đăng ký </button>
     </div>
-</body>
+    
+    <!-- Cửa sổ popup khi bấm Không đồng ý -->
+    <div id="no-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeNoPopup()">&times;</span>
+            <p>Không có chuyện đó đâu cưng!</p>
+            <div class="button-container">
+                <button class="btn" onclick="resetPopup()">Chọn lại</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hiển thị trái tim siêu to với ngôi sao lấp lánh -->
+    <div id="heart-container">
+        <div class="heart"></div>
+        <div class="stars"></div>
+    </div>
+    
+    <script>
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+            const noBtn = document.getElementById("noBtn");
+            noBtn.style.position = "relative";
+            noBtn.style.left = "10px";
+            noBtn.style.top = "0px";
+        }
+        
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+        
+        function moveButton() {
+            const button = document.getElementById("noBtn");
+            const popup = document.querySelector(".popup-content");
+            const maxX = popup.clientWidth - button.clientWidth - 20;
+            const maxY = popup.clientHeight - button.clientHeight - 20;
+            
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            
+            button.style.position = "absolute";
+            button.style.left = newX + "px";
+            button.style.top = newY + "px";
+        }
+        
+        function showNoPopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("no-popup").style.display = "block";
+        }
+        
+        function closeNoPopup() {
+            document.getElementById("no-popup").style.display = "none";
+        }
+        
+        function resetPopup() {
+            closeNoPopup();
+            openPopup();
+        }
+        
+        function showHeart() {
+            document.getElementById("heart-container").style.display = "flex";
+            closePopup();
+        }
+</script>
+    </body>
 </html>
